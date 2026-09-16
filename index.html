@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoann | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Curseur personnalisé -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>$ yoann@portfolio:~</h1>
+            <p class="subtitle">Terminale • Développement • Informatique</p>
+        </header>
+
+        <!-- Terminal -->
+        <main class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">Terminal</span>
+                <span class="terminal-buttons">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </span>
+            </div>
+            
+            <div class="terminal-content" id="terminalContent">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="welcome-text">Bienvenue ! Tape <span class="command-highlight">help</span> pour commencer.</span>
+                </div>
+            </div>
+
+            <div class="terminal-input-wrapper">
+                <span class="prompt">$</span>
+                <input 
+                    type="text" 
+                    class="terminal-input" 
+                    id="terminalInput" 
+                    spellcheck="false"
+                    autocomplete="off"
+                >
+            </div>
+        </main>
+
+        <!-- Sections cachées (affichées via le terminal) -->
+        <section id="aboutSection" class="hidden-section">
+            <h2>$ cd about</h2>
+            <div class="section-content">
+                <p>Terminale au lycée à Lyon, spécialités Mathématiques et NSI.</p>
+                <p>Je m'intéresse au développement et à l'informatique en général. J'aime surtout apprendre en faisant des projets et tester de nouvelles choses.</p>
+                
+                <h3>Technologies</h3>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">Linux</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projectsSection" class="hidden-section">
+            <h2>$ cd projects</h2>
+            <div class="section-content" id="projectsList">
+                <p class="loading">Chargement des projets...</p>
+            </div>
+        </section>
+
+        <section id="contactSection" class="hidden-section">
+            <h2>$ cd contact</h2>
+            <div class="section-content">
+                <p><strong>Email:</strong> <a href="mailto:yoann@example.com">yoann@example.com</a></p>
+                <p><strong>Discord:</strong> yoanndonche-boop</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/yoanndonche-boop" target="_blank">github.com/yoanndonche-boop</a></p>
+            </div>
+        </section>
+
+        <section id="objectivesSection" class="hidden-section">
+            <h2>$ cat objectives.txt</h2>
+            <div class="section-content">
+                <p>🚀 Continuer à progresser en développement.</p>
+                <p>💻 Créer des projets plus complets et ambitieux.</p>
+                <p>📚 Approfondir mes connaissances en informatique.</p>
+                <p><span class="coming-soon">✨ De grandes choses arrivent encore...</span></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="terminal.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

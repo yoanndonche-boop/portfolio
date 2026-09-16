@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    cursor: none;
+    overflow-x: hidden;
+}
+
+/* Curseur personnalisé */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.cursor-follower {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+
+/* Animation du curseur au survol */
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+.terminal-input:focus ~ .cursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    border-color: #00ff00;
+}
+
+/* Container principal */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #333333;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.subtitle {
+    color: #888888;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Terminal */
+.terminal {
+    background: #0a0a0a;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333333;
+}
+
+.terminal-title {
+    color: #888888;
+    font-size: 0.9em;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-content {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #000000;
+}
+
+.terminal-line {
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.welcome-text {
+    color: #ffffff;
+}
+
+.command-highlight {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.error-text {
+    color: #ff6b6b;
+}
+
+.success-text {
+    color: #51cf66;
+}
+
+/* Input du terminal */
+.terminal-input-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-top: 1px solid #333333;
+    background: #000000;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    outline: none;
+}
+
+.terminal-input::placeholder {
+    color: #555555;
+}
+
+/* Sections cachées */
+.hidden-section {
+    display: none;
+    animation: slideIn 0.3s ease;
+}
+
+.hidden-section.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden-section h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+.section-content {
+    background: #0a0a0a;
+    border: 1px solid #333333;
+    padding: 20px;
+    border-radius: 4px;
+    line-height: 1.8;
+}
+
+.section-content p {
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.section-content h3 {
+    color: #00ff00;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-badge {
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    color: #00ff00;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: #00ff00;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Projects List */
+#projectsList {
+    display: grid;
+    gap: 20px;
+}
+
+.project-card {
+    border: 1px solid #333333;
+    padding: 20px;
+    border-radius: 4px;
+    background: #0a0a0a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.project-name {
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.project-description {
+    color: #b0b0b0;
+    font-size: 0.95em;
+    margin-bottom: 12px;
+}
+
+.project-languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.language-tag {
+    background: #1a1a1a;
+    color: #00ff00;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    border: 1px solid #333333;
+}
+
+.project-links {
+    margin-top: 12px;
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.coming-soon {
+    color: #00ff00;
+    font-style: italic;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0.5; }
+}
+
+.loading {
+    color: #888888;
+    font-style: italic;
+}
+
+/* Scrollbar personnalisée */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background: #00ff00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .container {
+        padding: 20px 10px;
+    }
+
+    .terminal {
+        font-size: 0.9em;
+    }
+
+    .terminal-content {
+        max-height: 300px;
+    }
+
+    .tech-stack {
+        gap: 8px;
+    }
+
+    .tech-badge {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+}
